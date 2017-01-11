@@ -2,9 +2,9 @@ function [] = cognateWrapper( theta2 )
     clc;
     global cognateModel
     cognateModel.l1 = 3;
-    cognateModel.l2 = 1;
+    cognateModel.l2 = 2;
     cognateModel.l3 = 2;
-    cognateModel.l4 = 1;
+    cognateModel.l4 = 4;
     cognateModel.alpha = pi/2;
     cognateModel.beta = pi/3;
     cognateModel.theta2 = theta2;
