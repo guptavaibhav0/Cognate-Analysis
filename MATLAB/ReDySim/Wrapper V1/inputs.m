@@ -19,18 +19,21 @@ a12 = cognateModel.l1;
 a13 = cognateModel.l2;
 a24 = cognateModel.l4;
 a34 = cognateModel.l3;
-a35 = a34/(cos(cognateModel.alpha)+(sin(cognateModel.alpha)/tan(cognateModel.beta)));
-a45 = a34/(cos(cognateModel.beta)+(sin(cognateModel.beta)/tan(cognateModel.alpha)));
+a35_dummy = a34/(cos(cognateModel.alpha)+(sin(cognateModel.alpha)/tan(cognateModel.beta)));
+a45_dummy = a34/(cos(cognateModel.beta)+(sin(cognateModel.beta)/tan(cognateModel.alpha)));
+%sanity check
+a35 = a34/(cos(cognateModel.alpha + cognateModel.d_alpha1)+(sin(cognateModel.alpha + cognateModel.d_alpha1)/tan(cognateModel.beta + cognateModel.d_beta1)));
+a45 = a34/(cos(cognateModel.beta + cognateModel.d_beta2)+(sin(cognateModel.beta + cognateModel.d_beta2)/tan(cognateModel.alpha + cognateModel.d_alpha2)));
 a16 = a35;
 a28 = a45;
 a56 = a13;
 a58 = a24;
-a67 = a35*a56/a34;
-a59 = a35*a58/a34;
-a57 = a45*a56/a34;
-a89 = a45*a58/a34;
-a70 = a59;
-a90 = a57;
+a67 = a35_dummy*a56/a34;
+a59 = abs(cognateModel.points(14)-cognateModel.points(9));
+a57 = abs(cognateModel.points(5)-cognateModel.points(7));
+a89 = a45_dummy*a58/a34;
+a70 = abs(cognateModel.points(7)-cognateModel.points(10));
+a90 = abs(cognateModel.points(9)-cognateModel.points(10));
 al=[a12, a13, a24, a34, a35, a45, a16, a28, a56, a58, a67, a59, a57, a89, a70, a90];
 angs = [cognateModel.alpha, cognateModel.beta];
 %DH PARAMETERs
@@ -38,7 +41,7 @@ alp=[0 0 0 0 0 0 0 0 0];
 a=[0 a12 a24 0 a16 a67 a12 a28 a89];
 b=[0 0 0 0 0 0 0 0 0];
 %PARENT ARRAY
-bt=[0 0 2 0 4 5 0 7 8];
+bt=[0 0 2 0 4 5 0 7 9];
 
 %Actuated joints of open tree
 aj=[1 0 0 0 0 0 0 0 0]; %enter 1 for actuated joints and 0 otherwise
