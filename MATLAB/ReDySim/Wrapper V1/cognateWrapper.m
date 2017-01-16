@@ -23,7 +23,7 @@ function [] = cognateWrapper(theta2, varargin)
     
     parse(p,theta2,varargin{:});
 
-    clc;
+    
     global cognateModel
     cognateModel.l1 = p.Results.l1;
     cognateModel.l2 = p.Results.l2;
@@ -32,6 +32,12 @@ function [] = cognateWrapper(theta2, varargin)
     cognateModel.alpha = p.Results.alpha;
     cognateModel.beta = p.Results.beta;
     cognateModel.theta2 = p.Results.theta2;
+    
+    cognateModel.d_alpha1 = 0;
+    cognateModel.d_beta1 = 0;
+    cognateModel.d_alpha2 = 0;
+    cognateModel.d_beta2 = 0;
+    %distortion model - {d_alpha1,d_beta1,d_alpha2,d_beta2}
     
     get_initial_thetas();
     cognateModel.dth=[0; 0;  0;    0;  0;  0;  0;  0;  0];
