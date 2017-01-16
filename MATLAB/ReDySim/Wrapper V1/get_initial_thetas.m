@@ -56,8 +56,8 @@ function [] = get_initial_thetas()
     points(14) = points(3) + AC_2;
     points(8) = points(2) - C_2B;
 
-%points = [x, y]    { 1,  2 , 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
-%                   { O2, O4, A, B, C, D, E, F, G, O , I1, I2, I3}
+%points = [x, y]    { 1,  2 , 3, 4, 5,   6, 7, 8, 9, 10, 11, 12, 13, 14}
+%                   { O2, O4, A, B, C_1, D, E, F, G, O , I1, I2, I3, C_2}
     cognateModel.points = points;
     cognateModel.th = [...
         normAngle(angle(points(3)-points(1)));
